@@ -1,0 +1,23 @@
+spring:
+   thymeleaf:
+      cache: false
+      prefix: classpath:/static/
+
+   devtools:
+      restart:
+         enabled: true
+      livereload:
+         enabled: true
+
+   datasource:
+      url: jdbc:mysql://127.0.0.1:3306/webstorage?serverTimezone=UTC&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: upload
+      password: 1234
+
+# ===============================
+# = MYBATIS CONFIG
+# ===============================
+mybatis:
+  type-aliases-package: com.webStorage.dto
+  mapper-locations: mapper/**/*.xml
