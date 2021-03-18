@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="upload">
+
+  <select id="getTest" resultType="UploadVO">
+    SELECT
+      *
+    FROM
+      upload_table
+  </select>
+	
+	<!--쓰레기통 추가-->
+    <insert id="upload">
+	INSERT INTO upload_talbe(FILE_ORIGINAL_NAME, FILE_UUID_NAME, FILE_DELETE_DATE, FILE_PASSWORD, FILE_LOCATION) 
+			VALUES(    #{file_original_name} 
+                		 , #{file_uuid_name}
+                		 ,DATE_ADD(NOW(), INTERVAL #{deleteDay} DAY)
+                		 , #{password}
+                		 , #{file_location}
+				  )
+     </insert>
+</mapper>
